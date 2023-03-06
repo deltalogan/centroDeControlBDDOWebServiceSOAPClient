@@ -3,6 +3,7 @@ package centroDeControlBDDOWebServiceSOAPClient;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Iterator;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -43,6 +44,16 @@ public class BddoConsumer {
 		try {
 			object = jSONParser.parse(bddoService.getBddoServiceSoap().login(usuario, clave, "", "").toString());
 			JSONObject jSONObject = (JSONObject) object;
+
+			Iterator<?> items = jSONObject.values().iterator();
+
+			while (items.hasNext()) {
+
+				String item = items.next().toString();
+
+				System.out.println(item);
+			}
+
 			System.out.println(jSONObject.toString());
 
 		} catch (ParseException e) {
