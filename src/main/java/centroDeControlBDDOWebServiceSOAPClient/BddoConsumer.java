@@ -45,64 +45,24 @@ public class BddoConsumer {
 			object = jSONParser.parse(bddoService.getBddoServiceSoap().login(usuario, clave, "", "").toString());
 			JSONObject jSONObject = (JSONObject) object;
 
-			Iterator<?> items = jSONObject.values().iterator();
+			Iterator<?> itemsKeySet = jSONObject.keySet().iterator();
 
-			while (items.hasNext()) {
+			Iterator<?> itemsValues = jSONObject.values().iterator();
 
-				String item = items.next().toString();
+			while (itemsValues.hasNext() && itemsKeySet.hasNext()) {
+
+				System.out.println(itemsKeySet.next().toString());
+
+				String item = itemsValues.next().toString();
 
 				System.out.println(item);
 			}
 
-			System.out.println(jSONObject.toString());
+			// System.out.println(jSONObject.toString());
 
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage().toString());
 		}
-
-//		if (! jSONObject.equals("error")) {
-//
-//			@SuppressWarnings("unchecked")
-//			Iterator<String> items = (Iterator<String>) jSONObject.values();
-//
-//			while (items.hasNext()) {
-//
-//				String item = items.next().toString();
-//
-//				System.out.println(item);
-//
-//				if (item.equals("sesion")) {
-//
-//					Iterator<String> subItems = jSONObject.getJSONObject(item).keys();
-//
-//					while (subItems.hasNext())
-//
-//						System.out.println(jSONObject.getJSONObject(item).get(subItems.next().toString()).toString());
-//				}
-//
-//				else if (item.equals("Empresas")) {
-//
-//					Iterator<Object> subItems = jSONObject.getJSONArray(item).iterator();
-//
-//					while (subItems.hasNext())
-//
-//						System.out.println(subItems.next());
-//				}
-//
-//				else
-//
-//					System.out.println(jSONObject.get(item).toString());
-//			}
-//		}
-//
-//		else {
-//
-//			Iterator<String> items = jSONObject.keys();
-//
-//			while (items.hasNext())
-//
-//				System.out.println(jSONObject.get(items.next().toString()).toString());
-//		}
 	}
 }
