@@ -13,8 +13,6 @@ import org.tempuri.BddoService;
 public class BddoConsumer {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 		BddoService bddoService = new BddoService();
 
 		String usuario = null;
@@ -25,7 +23,6 @@ public class BddoConsumer {
 		try {
 			usuario = (new BufferedReader(new InputStreamReader(System.in)).readLine());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.getMessage().toString());
 		}
 
@@ -33,7 +30,6 @@ public class BddoConsumer {
 		try {
 			clave = (new BufferedReader(new InputStreamReader(System.in)).readLine());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.getMessage().toString());
 		}
 
@@ -61,7 +57,6 @@ public class BddoConsumer {
 			// System.out.println(jSONObject.toString());
 
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.getMessage().toString());
 		}
 	}
